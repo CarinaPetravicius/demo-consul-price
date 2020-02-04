@@ -2,7 +2,7 @@ version: "2.3" # cannot upgrade to 3.+ because they remove service_healthy condi
 
 services:
   consul:
-    image: consul:0.7.0
+    image: consul:1.6.2
     container_name: consul
     ports:
       - "8400:8400"

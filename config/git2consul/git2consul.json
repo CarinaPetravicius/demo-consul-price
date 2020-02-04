@@ -4,8 +4,7 @@
     {
       "name" : "config",
       "url" : "https://github.com/CarinaPetravicius/RepoGit2Consul.git",
-      "include_branch_name" : false,
-      "ignore_file_extension" : true,
+      "include_branch_name" : true,
       "branches" : ["master"],
       "hooks": [{
         "type" : "polling",

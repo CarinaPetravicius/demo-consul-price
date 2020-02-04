@@ -11,7 +11,7 @@ spring:
         enabled: true
         fail-fast: true
         format: properties
-        prefix: config
+        prefix: config/master
         defaultContext: tax-service-app
         data-key: data
         profileSeparator: '-'
