@@ -16,6 +16,9 @@ public class TaxController {
     @Value("${fix.price}")
     private Double fixPrice;
 
+    @Value("${fix.rate}")
+    private Double fixRate;
+
     @RequestMapping("/tax/{price}")
     public Double calculateTax(@PathVariable(value = "price") Double price) {
         return price * taxRate;
@@ -24,6 +27,11 @@ public class TaxController {
     @RequestMapping("/price")
     public Double calculateFixPrice() {
         return fixPrice * taxRate;
+    }
+
+    @RequestMapping("/taxrate")
+    public Double calculateFixRate() {
+        return fixRate;
     }
 
 }

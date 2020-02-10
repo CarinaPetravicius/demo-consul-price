@@ -13,7 +13,7 @@ spring:
         fail-fast: true
         format: properties
         prefix: config/master
-        defaultContext: tax-service-app
+        defaultContext: application
         data-key: data
         profileSeparator: '-'
         watch:
