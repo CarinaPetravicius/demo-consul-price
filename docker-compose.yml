@@ -1,5 +1,8 @@
 version: "2.3" # cannot upgrade to 3.+ because they remove service_healthy condition
 
+networks:
+  demoNetwork:
+
 services:
   consul:
     image: consul:1.6.2
@@ -13,6 +16,8 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+    networks:
+      - demoNetwork
 
   git2consul:
     image: cimpress/git2consul
@@ -23,3 +28,31 @@ services:
     volumes:
       - ./config/git2consul:/config
     command: --endpoint consul --config-file /config/git2consul.json
+    networks:
+      - demoNetwork
+
+  demo-consul-price-1:
+    image: demo-consul-price-1
+    ports:
+      - "8080:8080"
+    container_name: demo-consul-price-1
+    depends_on:
+      - consul
+    environment:
+      - INSTANCE_NAME=demo-consul-price-1
+      - CONSUL_HOST=consul
+    networks:
+      - demoNetwork
+
+  demo-consul-price-2:
+    image: demo-consul-price-2
+    ports:
+      - "8090:8080"
+    container_name: demo-consul-price-2
+    depends_on:
+      - consul
+    environment:
+      - INSTANCE_NAME=demo-consul-price-2
+      - CONSUL_HOST=consul
+    networks:
+      - demoNetwork

@@ -19,18 +19,24 @@ public class TaxController {
     @Value("${fix.rate}")
     private Double fixRate;
 
+    @Value("${instance.name}")
+    private String instanceName;
+
     @RequestMapping("/tax/{price}")
     public Double calculateTax(@PathVariable(value = "price") Double price) {
+        System.out.println(instanceName + " calculate tax");
         return price * taxRate;
     }
 
     @RequestMapping("/price")
     public Double calculateFixPrice() {
+        System.out.println(instanceName + " calculate fix price");
         return fixPrice * taxRate;
     }
 
     @RequestMapping("/taxrate")
     public Double calculateFixRate() {
+        System.out.println(instanceName + " calculate fix rate");
         return fixRate;
     }
 
