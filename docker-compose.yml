@@ -37,10 +37,10 @@ services:
       - "8080:8080"
     container_name: demo-consul-price-1
     depends_on:
-      - consul
+      - git2consul
     environment:
       - INSTANCE_NAME=demo-consul-price-1
-      - CONSUL_HOST=consul
+      - CONSUL_HOST=http://consul
     networks:
       - demoNetwork
 
@@ -50,9 +50,9 @@ services:
       - "8090:8080"
     container_name: demo-consul-price-2
     depends_on:
-      - consul
+      - git2consul
     environment:
       - INSTANCE_NAME=demo-consul-price-2
-      - CONSUL_HOST=consul
+      - CONSUL_HOST=http://consul
     networks:
       - demoNetwork
